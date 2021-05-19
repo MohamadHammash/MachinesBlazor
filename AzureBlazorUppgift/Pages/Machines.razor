@@ -1,0 +1,100 @@
+﻿@page "/machines"
+
+<h3>Machine</h3>
+
+
+<ul>
+
+
+    @foreach (var machine in MachineList)
+    {
+        <li class="machine-items">
+
+            <div>
+                <div class="container">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-md-3 col-lg-2 col-xl-3">
+                            <h5>Machine Name </h5>
+                            <p>@machine.Name</p>
+                            <p>Machine Id:</p>
+                            <p>@machine.Id</p>
+                        </div>
+                        <div class="col-md-3 col-lg-2 col-xl-3 offset-lg-0">
+                            <h5>Status:</h5>
+                           <span>@machine.Status <img class="icons" src="@machine.Icon" /></span> 
+                        </div>
+                        <div class="col-md-3 col-lg-2 col-xl-3">
+                            <h5>Data:</h5>
+                            <p>@machine.LatestSentData</p>
+                           
+                        </div>
+                        <div class="col-md-3 col-lg-2 col-xl-3 align-self-center ml-auto"><button class="btn btn-info" type="button">Send Command</button></div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    }
+
+</ul>
+
+
+@code {
+
+
+
+    public List<MachineClass> MachineList = new List<MachineClass>
+    {
+       new MachineClass
+       {
+            Name = "CNC Machine",
+            Id = Guid.NewGuid(),
+            Online = true,
+            LatestSentData = "Hello from CNC machine 1 "
+       },
+       new MachineClass
+       {
+            Name = " Machine 2",
+            Id = Guid.NewGuid(),
+            Online = false,
+            LatestSentData = "Hello from machine 2 "
+       },
+       new MachineClass
+       {
+            Name = "Lathe machine 1 ",
+            Id = Guid.NewGuid(),
+            Online = true,
+            LatestSentData = "Hello from lathe machine 1"
+       }
+
+    };
+
+    //public void AddMachines()
+    //{
+    //    Machines.Add(new MachineClass
+    //    {
+    //        Name = "CNC Machine",
+    //        Id = Guid.NewGuid(),
+    //        Online = true,
+    //        LatestSentData = "Hello from CNC machine 1 "
+    //    });
+
+    //    Machines.Add(new MachineClass
+    //    {
+    //        Name = " Machine 2",
+    //        Id = Guid.NewGuid(),
+    //        Online = false,
+    //        LatestSentData = "Hello from machine 2 "
+    //    });
+
+    //    Machines.Add(new MachineClass
+    //    {
+    //        Name = "Lathe machine 1 ",
+    //        Id = Guid.NewGuid(),
+    //        Online = true,
+    //        LatestSentData = "Hello from lathe machine 1"
+    //    });
+
+
+}
+
+
