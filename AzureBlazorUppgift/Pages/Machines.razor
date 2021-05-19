@@ -28,7 +28,10 @@
                             <p>@machine.LatestSentData</p>
                            
                         </div>
-                        <div class="col-md-3 col-lg-2 col-xl-3 align-self-center ml-auto"><button class="btn btn-info" type="button">Send Command</button></div>
+                        <div class="col-md-3 col-lg-2 col-xl-3 align-self-center d-flex ml-auto">
+                            <button @onclick="() => ChangeStatus(machine) " class="btn btn-info mr-1" type="button">Change status</button>
+                            <button class="btn btn-info" type="button">Send commands</button>
+                        </div> 
                     </div>
                 </div>
             </div>
@@ -68,31 +71,19 @@
 
     };
 
-    //public void AddMachines()
-    //{
-    //    Machines.Add(new MachineClass
-    //    {
-    //        Name = "CNC Machine",
-    //        Id = Guid.NewGuid(),
-    //        Online = true,
-    //        LatestSentData = "Hello from CNC machine 1 "
-    //    });
+    private void ChangeStatus(MachineClass machine)
+    {
+        if (machine.Online)
+        {
+            machine.Online = false;
+        }
+        else
+        {
+            machine.Online = true;
+        }
+    }
 
-    //    Machines.Add(new MachineClass
-    //    {
-    //        Name = " Machine 2",
-    //        Id = Guid.NewGuid(),
-    //        Online = false,
-    //        LatestSentData = "Hello from machine 2 "
-    //    });
 
-    //    Machines.Add(new MachineClass
-    //    {
-    //        Name = "Lathe machine 1 ",
-    //        Id = Guid.NewGuid(),
-    //        Online = true,
-    //        LatestSentData = "Hello from lathe machine 1"
-    //    });
 
 
 }
